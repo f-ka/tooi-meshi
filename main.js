@@ -20,7 +20,6 @@ fetch('data.json')
 function renderList(data) {
     const list = document.getElementById('restaurant-list');
     list.innerHTML = '';
-
     data.forEach(r => {
         const div = document.createElement('div');
         div.className = 'restaurant';
@@ -39,17 +38,12 @@ function renderList(data) {
     });
 }
 
-document.getElementById('sortButton').addEventListener('click', () => {
-    const sorted = [...restaurantData].sort((a, b) => b.distance - a.distance);
-    renderList(sorted);
-});
-
 document.getElementById('categorySelect').addEventListener('change', (e) => {
-    const category = e.target.value;
-    if (category === 'all') {
+    const selectedCategory = e.target.value;
+    if (selectedCategory === 'all') {
         renderList(restaurantData);
     } else {
-        const filtered = restaurantData.filter(r => r.category === category);
+        const filtered = restaurantData.filter(r => r.category === selectedCategory);
         renderList(filtered);
     }
 });
