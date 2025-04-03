@@ -28,7 +28,10 @@ function renderList(data) {
       <h2>${r.name}</h2>
       <img src="${r.image}" alt="${r.name}">
       <p><strong>カテゴリ:</strong> ${r.category}</p>
-      <p>${r.description}</p>
+      <details>
+        <summary>店舗の説明を見る</summary>
+        <p>${r.description}</p>
+      </details>
       <p><span class="distance">駅から徒歩 約${r.walkMinutes}分</span>（最寄: ${r.nearest_station}）</p>
       <a href="https://www.google.com/maps/search/?api=1&query=${r.latitude},${r.longitude}" target="_blank">Google Mapで見る</a>
     `;
@@ -39,6 +42,16 @@ function renderList(data) {
 document.getElementById('sortButton').addEventListener('click', () => {
     const sorted = [...restaurantData].sort((a, b) => b.distance - a.distance);
     renderList(sorted);
+});
+
+document.getElementById('categorySelect').addEventListener('change', (e) => {
+    const category = e.target.value;
+    if (category === 'all') {
+        renderList(restaurantData);
+    } else {
+        const filtered = restaurantData.filter(r => r.category === category);
+        renderList(filtered);
+    }
 });
 
 function getDistance(lat1, lon1, lat2, lon2) {

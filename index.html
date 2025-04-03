@@ -9,6 +9,18 @@
 
 <body>
     <h1>駅から遠いグルメ店</h1>
+
+    <label for="categorySelect">カテゴリで絞り込む:</label>
+    <select id="categorySelect">
+        <option value="all">すべて</option>
+        <option value="カフェ">カフェ</option>
+        <option value="ラーメン">ラーメン</option>
+        <option value="定食">定食</option>
+    </select>
+
+    <button id="sortButton">遠い順に並び替え</button>
+    <div id="restaurant-list"></div>
+
     <button id="sortButton">遠い順に並び替え</button>
     <div id="restaurant-list"></div>
 
