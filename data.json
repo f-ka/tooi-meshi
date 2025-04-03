@@ -1,0 +1,35 @@
+[
+    {
+        "name": "山奥カフェ もりのひととき",
+        "category": "カフェ",
+        "description": "自然の中で静かに過ごせる隠れ家カフェ。ケーキとコーヒーが絶品。",
+        "latitude": 35.789123,
+        "longitude": 139.123456,
+        "nearest_station": "山のふもと駅",
+        "station_latitude": 35.750000,
+        "station_longitude": 139.100000,
+        "image": "img/cafe1.jpg"
+    },
+    {
+        "name": "農道ラーメン 一徹",
+        "category": "ラーメン",
+        "description": "農道を30分歩いた先にあるガチうまラーメン店。スープが命。",
+        "latitude": 35.845678,
+        "longitude": 139.234567,
+        "nearest_station": "西野原駅",
+        "station_latitude": 35.800000,
+        "station_longitude": 139.200000,
+        "image": "img/ramen1.jpg"
+    },
+    {
+        "name": "田んぼの中の定食屋 あぜみち亭",
+        "category": "定食",
+        "description": "アクセスは最悪。でも味は最高。唐揚げ定食が人気。",
+        "latitude": 35.912345,
+        "longitude": 139.345678,
+        "station_latitude": 35.860000,
+        "station_longitude": 139.310000,
+        "nearest_station": "南大沢駅",
+        "image": "img/teishoku1.jpg"
+    }
+]
