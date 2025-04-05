@@ -81,6 +81,11 @@ document.getElementById('sortButton').addEventListener('click', () => {
     renderList(sorted);
 });
 
+document.getElementById('sortRatingButton').addEventListener('click', () => {
+    const sorted = [...restaurantData].sort((a, b) => b.rating - a.rating);
+    renderList(sorted);
+});
+
 document.getElementById('categorySelect').addEventListener('change', handleSearchFilter);
 document.getElementById('searchInput').addEventListener('input', handleSearchFilter);
 
