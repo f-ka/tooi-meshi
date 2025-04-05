@@ -28,6 +28,7 @@ h1 {
 #restaurant-list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5em;
 }
 
@@ -35,13 +36,14 @@ h1 {
     background: white;
     border-radius: 8px;
     padding: 1em;
-    max-width: 100%;
+    width: 100%;
+    max-width: 600px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .restaurant img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 4px;
 }
@@ -108,16 +110,9 @@ button.view-detail:hover {
 
 /* PC用スタイル */
 @media (min-width: 600px) {
-    .restaurant {
-        max-width: 600px;
-    }
-
     .controls {
         flex-direction: row;
         justify-content: center;
     }
 
-    .controls label {
-        margin-right: 0.5em;
-    }
-}
+    .controls
