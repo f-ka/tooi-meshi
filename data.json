@@ -8,7 +8,9 @@
         "nearest_station": "山のふもと駅",
         "station_latitude": 35.750000,
         "station_longitude": 139.100000,
-        "image": "img/cafe1.jpg"
+        "image": "img/cafe1.jpg",
+        "review": "自然の中でゆっくりできて最高でした。",
+        "rating": 4
     },
     {
         "name": "農道ラーメン 一徹",
@@ -19,7 +21,9 @@
         "nearest_station": "西野原駅",
         "station_latitude": 35.800000,
         "station_longitude": 139.200000,
-        "image": "img/ramen1.jpg"
+        "image": "img/ramen1.jpg",
+        "review": "自然の中でゆっくりできて最高でした。",
+        "rating": 4
     },
     {
         "name": "田んぼの中の定食屋 あぜみち亭",
@@ -30,6 +34,8 @@
         "station_latitude": 35.860000,
         "station_longitude": 139.310000,
         "nearest_station": "南大沢駅",
-        "image": "img/teishoku1.jpg"
+        "image": "img/teishoku1.jpg",
+        "review": "自然の中でゆっくりできて最高でした。",
+        "rating": 4
     }
 ]
