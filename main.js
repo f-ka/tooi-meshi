@@ -60,8 +60,13 @@ function renderList(data) {
       <p>
         <strong>評価:</strong>
         ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}
-        </p>
+      </p>
         <p><strong>レビュー:</strong> ${r.review}</p>
+        ${r.tags && r.tags.length > 0 ? `
+            <div class="tag-list">
+              ${r.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
+            </div>` : ''
+            }     
 
       <details>
         <summary>店舗の説明を見る</summary>
