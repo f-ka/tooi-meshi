@@ -23,7 +23,7 @@
         "station_longitude": 139.200000,
         "image": "img/ramen1.jpg",
         "review": "自然の中でゆっくりできて最高でした。",
-        "rating": 4
+        "rating": 5
     },
     {
         "name": "田んぼの中の定食屋 あぜみち亭",
@@ -36,6 +36,6 @@
         "nearest_station": "南大沢駅",
         "image": "img/teishoku1.jpg",
         "review": "自然の中でゆっくりできて最高でした。",
-        "rating": 4
+        "rating": 3
     }
 ]
