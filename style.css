@@ -117,6 +117,17 @@ button.view-detail:hover {
     cursor: pointer;
 }
 
+.current-distance {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 0.3em;
+}
+
+.restaurant p strong {
+    display: inline-block;
+    min-width: 4em;
+}
+
 /* PC用 */
 @media (min-width: 600px) {
     .controls {
