@@ -57,18 +57,26 @@ h1 {
     margin-bottom: 0.5em;
 }
 
-a {
+a,
+button.view-detail {
     display: inline-block;
     margin-top: 0.5em;
-    color: #0066cc;
+    font-size: 0.95em;
     text-decoration: none;
+    padding: 0.4em 0.8em;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-a:hover {
-    text-decoration: underline;
+a:hover,
+button.view-detail:hover {
+    background: #004c99;
 }
 
-/* モーダル全体 */
+/* モーダル */
 .modal {
     display: none;
     position: fixed;
@@ -81,7 +89,6 @@ a:hover {
     background: rgba(0, 0, 0, 0.6);
 }
 
-/* モーダルの中身 */
 .modal-content {
     background: #fff;
     margin: 10% auto;
@@ -91,7 +98,6 @@ a:hover {
     position: relative;
 }
 
-/* 閉じるボタン */
 .modal-close {
     position: absolute;
     top: 0.5em;
@@ -100,7 +106,7 @@ a:hover {
     cursor: pointer;
 }
 
-/* ✅ スマホ以外のときに幅を調整 */
+/* PC用スタイル */
 @media (min-width: 600px) {
     .restaurant {
         max-width: 600px;
