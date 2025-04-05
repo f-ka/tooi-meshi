@@ -45,16 +45,26 @@ document.getElementById('sortButton').addEventListener('click', () => {
     renderList(sorted);
 });
 
-document.getElementById('categorySelect').addEventListener('change', (e) => {
-    const selectedCategory = e.target.value;
-    if (selectedCategory === 'all') {
-        renderList(restaurantData);
-    } else {
-        const filtered = restaurantData.filter(r => r.category === selectedCategory);
-        renderList(filtered);
-    }
-});
+document.getElementById('categorySelect').addEventListener('change', handleSearchFilter);
+document.getElementById('searchInput').addEventListener('input', handleSearchFilter);
 
+function handleSearchFilter() {
+    const selectedCategory = document.getElementById('categorySelect').value;
+    const keyword = document.getElementById('searchInput').value.toLowerCase();
+
+    const filtered = restaurantData.filter(r => {
+        const inCategory = selectedCategory === 'all' || r.category === selectedCategory;
+        const inText =
+            r.name.toLowerCase().includes(keyword) ||
+            r.description.toLowerCase().includes(keyword) ||
+            r.category.toLowerCase().includes(keyword);
+        return inCategory && inText;
+    });
+
+    renderList(filtered);
+}
+
+// モーダル表示処理
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('view-detail')) {
         const name = e.target.getAttribute('data-name');
