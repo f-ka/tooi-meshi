@@ -25,19 +25,41 @@ function renderList(data) {
         const div = document.createElement('div');
         div.className = 'restaurant';
         div.innerHTML = `
-      <h2>${r.name}</h2>
-      <img src="${r.image}" alt="${r.name}">
-      <p><strong>カテゴリ:</strong> ${r.category}</p>
-      <details>
-        <summary>店舗の説明を見る</summary>
-        <p>${r.description}</p>
-      </details>
-      <p><span class="distance">駅から徒歩 約${r.walkMinutes}分</span>（最寄: ${r.nearest_station}）</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=${r.latitude},${r.longitude}" target="_blank">Google Mapで見る</a>
-    `;
+            <h2>${r.name}</h2>
+            <img src="${r.image}" alt="${r.name}">
+            <p><strong>カテゴリ:</strong> ${r.category}</p>
+            <details>
+                <summary>店舗の説明を見る</summary>
+                <p>${r.description}</p>
+            </details>
+            <p><span class="distance">駅から徒歩 約${r.walkMinutes}分</span>（最寄: ${r.nearest_station}）</p>
+            <button class="view-detail" data-name="${r.name}" data-description="${r.description}" data-image="${r.image}">詳細を見る</button>
+            `;
+
         list.appendChild(div);
     });
 }
+
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('view-detail')) {
+        const name = e.target.getAttribute('data-name');
+        const desc = e.target.getAttribute('data-description');
+        const image = e.target.getAttribute('data-image');
+
+        const modalBody = document.getElementById('modal-body');
+        modalBody.innerHTML = `
+        <h2>${name}</h2>
+        <img src="${image}" alt="${name}" style="max-width:100%; border-radius:8px;">
+        <p>${desc}</p>
+      `;
+
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    if (e.target.classList.contains('modal-close')) {
+        document.getElementById('modal').style.display = 'none';
+    }
+});
 
 document.getElementById('sortButton').addEventListener('click', () => {
     const sorted = [...restaurantData].sort((a, b) => b.distance - a.distance);
