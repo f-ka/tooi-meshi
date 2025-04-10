@@ -64,9 +64,9 @@ function renderList(data) {
         <p><strong>レビュー:</strong> ${r.review}</p>
         ${r.tags && r.tags.length > 0 ? `
             <div class="tag-list">
-              ${r.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
+              ${r.tags.map(tag => `<span class="tag" data-tag="${tag}">#${tag}</span>`).join(' ')}
             </div>` : ''
-            }     
+            }             
 
       <details>
         <summary>店舗の説明を見る</summary>
@@ -129,6 +129,14 @@ document.addEventListener('click', function (e) {
 
     if (e.target.classList.contains('modal-close')) {
         document.getElementById('modal').style.display = 'none';
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('tag')) {
+        const tag = e.target.getAttribute('data-tag');
+        const filtered = restaurantData.filter(r => r.tags && r.tags.includes(tag));
+        renderList(filtered);
     }
 });
 
