@@ -88,7 +88,7 @@ function renderList(data) {
         </div>
 
       <a href="https://www.google.com/maps/search/?api=1&query=${r.latitude},${r.longitude}" target="_blank">Google Mapで見る</a>
-      ${r.affiliate_url ? `<a href="${r.affiliate_url}" target="_blank">公式ページを見る</a>` : ''}
+      ${r.affiliate_url ? `<a class="affiliate-link" href="${r.affiliate_url}" target="_blank">公式ページを見る</a>` : ''}
     `;
         list.appendChild(div);
     });
