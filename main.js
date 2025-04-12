@@ -52,8 +52,9 @@ function renderList(data) {
 
     data.forEach(r => {
         const div = document.createElement('div');
-        div.className = 'restaurant';
+        div.className = 'restaurant' + (r.rating >= 4 ? ' recommended' : '');
         div.innerHTML = `
+        ${r.rating >= 4 ? `<p class="recommend-badge">🌟 おすすめ</p>` : ''}
       <h2>${r.name}</h2>
       <img src="${r.image}" alt="${r.name}">
       <p><strong>カテゴリ:</strong> ${r.category}</p>

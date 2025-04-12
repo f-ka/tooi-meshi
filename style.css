@@ -163,6 +163,22 @@ button.view-detail:hover {
     color: #fff;
 }
 
+.recommend-badge {
+    background: gold;
+    color: #333;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    border-radius: 999px;
+    margin-bottom: 0.3em;
+    font-size: 0.9em;
+}
+
+.restaurant.recommended {
+    background: #fffbe5;
+    border: 2px solid gold;
+}
+
 /* PC用 */
 @media (min-width: 600px) {
     .controls {
