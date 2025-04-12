@@ -75,6 +75,18 @@ function renderList(data) {
       <p><span class="distance">駅から徒歩 約${r.walkMinutes}分</span>（最寄: ${r.nearest_station}）</p>
       ${r.currentWalk ? `<p class="current-distance">現在地から徒歩 約${r.currentWalk}分</p>` : ''}
       <button class="view-detail" data-name="${r.name}" data-description="${r.description}" data-image="${r.image}">詳細を見る</button>
+      <div class="map-embed">
+        <iframe
+            src="https://maps.google.com/maps?q=${r.latitude},${r.longitude}&z=15&output=embed"
+            width="100%"
+            height="200"
+            frameborder="0"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+        </div>
+
       <a href="https://www.google.com/maps/search/?api=1&query=${r.latitude},${r.longitude}" target="_blank">Google Mapで見る</a>
     `;
         list.appendChild(div);
