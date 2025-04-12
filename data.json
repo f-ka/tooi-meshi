@@ -15,7 +15,8 @@
             "穴場",
             "昼飲み",
             "インスタ映え"
-        ]
+        ],
+        "affiliate_url": "https://tabelog.com/xxxxxxx/"
     },
     {
         "name": "農道ラーメン 一徹",
@@ -33,7 +34,8 @@
             "太麺",
             "ランチ",
             "朝2時まで"
-        ]
+        ],
+        "affiliate_url": "https://tabelog.com/xxxxxxx/"
     },
     {
         "name": "田んぼの中の定食屋 あぜみち亭",
@@ -51,6 +53,7 @@
             "日本酒",
             "夜は居酒屋",
             "老舗"
-        ]
+        ],
+        "affiliate_url": "https://tabelog.com/xxxxxxx/"
     }
 ]
