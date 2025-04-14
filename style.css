@@ -196,6 +196,21 @@ button.view-detail:hover {
     color: #fff;
 }
 
+button {
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    border: none;
+    background: #0066cc;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #004c99;
+}
+
 /* PC用 */
 @media (min-width: 600px) {
     .controls {

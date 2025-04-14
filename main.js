@@ -109,6 +109,12 @@ document.getElementById('sortRatingButton').addEventListener('click', () => {
     renderList(sorted);
 });
 
+document.getElementById('filterFavoriteButton').addEventListener('click', () => {
+    const favs = getFavorites();
+    const filtered = restaurantData.filter(r => favs.includes(r.name));
+    renderList(filtered);
+});
+
 document.getElementById('categorySelect').addEventListener('change', handleSearchFilter);
 document.getElementById('searchInput').addEventListener('input', handleSearchFilter);
 
