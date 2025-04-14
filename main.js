@@ -95,7 +95,9 @@ function renderList(data) {
 </button>
 
 <div class="review-list">
-  ${getStoredReviews(r.name).map(rev => `<p>${"★".repeat(rev.rating)}：${rev.comment}</p>`).join('')}
+  ${getStoredReviews(r.name).map(rev => `
+    <p>${"★".repeat(rev.rating)}：${rev.comment} <br><small style="color:#999;">投稿日時: ${new Date(rev.timestamp).toLocaleString()}</small></p>
+  `).join('')}
 </div>
 
 <div class="review-form" data-id="${r.name}">
@@ -194,7 +196,14 @@ function getStoredReviews(name) {
 // レビューの保存（localStorageへ）
 function saveReview(name, rating, comment) {
     const reviews = getStoredReviews(name);
-    reviews.push({ rating: parseInt(rating), comment });
+    const timestamp = new Date().toISOString();
+    const reviewId = 'rev_' + timestamp.replace(/[-:.TZ]/g, '') + '_' + Math.random().toString(36).substr(2, 5);
+    reviews.push({
+        reviewId,
+        rating: parseInt(rating),
+        comment,
+        timestamp
+    });
     localStorage.setItem('reviews_' + name, JSON.stringify(reviews));
 }
 
