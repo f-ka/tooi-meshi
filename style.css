@@ -211,6 +211,39 @@ button:hover {
     background: #004c99;
 }
 
+.review-form {
+    margin-top: 1em;
+    border-top: 1px dashed #ccc;
+    padding-top: 0.8em;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    margin-bottom: 0.5em;
+    padding: 0.4em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.review-form button {
+    background: #ff9900;
+    color: white;
+    border: none;
+}
+
+.review-form button:hover {
+    background: #cc7a00;
+}
+
+.review-list {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    background: #f8f8f8;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
 /* PC用 */
 @media (min-width: 600px) {
     .controls {

@@ -94,6 +94,18 @@ function renderList(data) {
   ${isFavorite(r.name) ? '❤️ お気に入り済み' : '♡ お気に入り'}
 </button>
 
+<div class="review-list">
+  ${getStoredReviews(r.name).map(rev => `<p>${"★".repeat(rev.rating)}：${rev.comment}</p>`).join('')}
+</div>
+
+<div class="review-form" data-id="${r.name}">
+  <label>評価（1〜5）:</label>
+  <input type="number" class="review-rating" min="1" max="5" value="5">
+  <label>コメント:</label>
+  <textarea class="review-comment" rows="2" placeholder="コメントを入力..."></textarea>
+  <button class="submit-review">レビューを投稿</button>
+</div>
+
     `;
         list.appendChild(div);
     });
@@ -174,6 +186,18 @@ function getDistance(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
+// レビューの取得（localStorageから）
+function getStoredReviews(name) {
+    return JSON.parse(localStorage.getItem('reviews_' + name) || '[]');
+}
+
+// レビューの保存（localStorageへ）
+function saveReview(name, rating, comment) {
+    const reviews = getStoredReviews(name);
+    reviews.push({ rating: parseInt(rating), comment });
+    localStorage.setItem('reviews_' + name, JSON.stringify(reviews));
+}
+
 // お気に入り取得
 function getFavorites() {
     return JSON.parse(localStorage.getItem('favorites') || '[]');
@@ -202,5 +226,15 @@ document.addEventListener('click', function (e) {
         const name = e.target.getAttribute('data-id');
         toggleFavorite(name);
         renderList(restaurantData); // 状態更新のため再描画
+    }
+    if (e.target.classList.contains('submit-review')) {
+        const wrapper = e.target.closest('.review-form');
+        const name = wrapper.getAttribute('data-id');
+        const rating = wrapper.querySelector('.review-rating').value;
+        const comment = wrapper.querySelector('.review-comment').value;
+        if (comment && rating >= 1 && rating <= 5) {
+            saveReview(name, rating, comment);
+            renderList(restaurantData);
+        }
     }
 });
