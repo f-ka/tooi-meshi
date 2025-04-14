@@ -90,6 +90,10 @@ function renderList(data) {
 
       <a href="https://www.google.com/maps/search/?api=1&query=${r.latitude},${r.longitude}" target="_blank">Google Mapで見る</a>
       ${r.affiliate_url ? `<a class="affiliate-link" href="${r.affiliate_url}" target="_blank">公式ページを見る</a>` : ''}
+      <button class="favorite-btn" data-id="${r.name}">
+  ${isFavorite(r.name) ? '❤️ お気に入り済み' : '♡ お気に入り'}
+</button>
+
     `;
         list.appendChild(div);
     });
@@ -163,3 +167,34 @@ function getDistance(lat1, lon1, lat2, lon2) {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
 }
+
+// お気に入り取得
+function getFavorites() {
+    return JSON.parse(localStorage.getItem('favorites') || '[]');
+}
+
+// お気に入り登録チェック
+function isFavorite(name) {
+    const favs = getFavorites();
+    return favs.includes(name);
+}
+
+// お気に入りトグル
+function toggleFavorite(name) {
+    let favs = getFavorites();
+    if (favs.includes(name)) {
+        favs = favs.filter(n => n !== name);
+    } else {
+        favs.push(name);
+    }
+    localStorage.setItem('favorites', JSON.stringify(favs));
+}
+
+// お気に入りボタン処理
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('favorite-btn')) {
+        const name = e.target.getAttribute('data-id');
+        toggleFavorite(name);
+        renderList(restaurantData); // 状態更新のため再描画
+    }
+});
